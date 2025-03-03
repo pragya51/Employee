@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Employee.java&apos; to &apos;Project_emp/src/main/java/com.pack.model&apos;&#x0D;&#x0A;- Original project: &apos;SpringBootRest-1&apos;&#x0D;&#x0A;- Destination element: &apos;Project_emp/src/main/java/com.pack.model&apos;&#x0D;&#x0A;- Original element: &apos;com.pack.model.Employee.java&apos;" description="Copy compilation unit" destination="=Project_emp/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pack.model" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pack.model{Employee.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1740652007990" units="1" version="1.0"/>
+</session>

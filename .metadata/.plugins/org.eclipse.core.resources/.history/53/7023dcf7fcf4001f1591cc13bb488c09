@@ -1,0 +1,24 @@
+package com.pack.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pack.model.Employee;
+import com.pack.repository.EmployeeRepository;
+
+@Service
+public class EmployeeService {
+	
+	@Autowired
+	EmployeeRepository repository;
+	
+	public Employee saveEmp(Employee employee) {
+		if(employee.getSalary()>5000f) {
+			employee.setInsScheme("A");
+		}
+		else employee.setInsScheme("B");
+		
+		return repository.save(employee);
+	}
+
+}

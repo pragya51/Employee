@@ -1,0 +1,29 @@
+package com.pack.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pack.model.Employee;
+import com.pack.service.EmployeeService;
+
+@RestController
+public class EmployeeController {
+	
+	@Autowired
+	EmployeeService service;
+	
+	@PostMapping("/addEmployee")
+	public Employee saveEmp(@RequestBody Employee employee) {
+		return service.saveEmp(employee);
+	}
+    
+	@GetMapping
+	public List<Employee> getEmp(){
+		return service.getEmployee();
+	}
+}

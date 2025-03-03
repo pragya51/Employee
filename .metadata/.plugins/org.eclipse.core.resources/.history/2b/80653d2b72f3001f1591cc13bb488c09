@@ -1,0 +1,61 @@
+package com.pack.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.pack.model.Employee;
+import com.pack.service.EmployeeService;
+
+@Controller
+public class EmployeeController {
+	
+	@Autowired
+	EmployeeService empService;
+	
+	@RequestMapping("/welcome")
+	public String welcome() {
+		return "index";
+		
+	}
+	
+	@RequestMapping("/addEmp")
+	public String addEmp(Model m) {
+		m.addAttribute("empBean",new Employee());
+		return "emp";
+		
+	}
+	
+	@ RequestMapping("/empsave")
+	public String saveEmp(@ModelAttribute("empBean") Employee e) {
+		
+		empService.addEmployee(e);
+		return "success";
+		
+	}
+	
+	@RequestMapping("/viewform")
+	public String viewemp(Model m) {
+		List<Employee> list=empService.viewAll();
+		m.addAttribute("list",list);
+		return "view";
+	}
+	
+	@GetMapping("/delete")
+	public String del() {
+		return "getID";
+	}
+	@RequestMapping("/delete")
+    public String deleteEmployee(@RequestParam("eno") Employee eno, Model m) {
+        empService.deleteEmployeeById(eno);
+       // m.addAttribute("message", "Employee deleted successfully!");
+        return "redirect:/viewform"; // Redirect to the page showing all employees
+    }
+
+}

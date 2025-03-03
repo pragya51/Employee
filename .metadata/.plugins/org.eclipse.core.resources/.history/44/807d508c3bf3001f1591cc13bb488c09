@@ -1,0 +1,3 @@
+spring.application.name=SpringBootHelloWorld
+spring.mvc.view.prefix=/pages/
+spring.mvc.view.suffix=.jsp

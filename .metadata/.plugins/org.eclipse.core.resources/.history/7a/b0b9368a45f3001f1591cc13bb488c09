@@ -1,0 +1,20 @@
+package com.pack.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.pack.model.Employee;
+
+@Controller
+public class EmployeeController {
+	
+	@RequestMapping("/addEmp")
+	public String addEmp(Model m) {
+		m.addAttribute("empBean",new Employee());
+		return "emp";
+		
+		
+	}
+
+}

@@ -1,0 +1,33 @@
+package com.pack.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.pack.model.Employee;
+import com.pack.service.EmployeeService;
+
+@Controller
+public class EmployeeController {
+	
+	@Autowired
+	EmployeeService empService;
+	
+	@RequestMapping("/addEmp")
+	public String addEmp(Model m) {
+		m.addAttribute("empBean",new Employee());
+		return "emp";
+		
+	}
+	
+	@ RequestMapping("/empSave")
+	public String saveEmp(@ModelAttribute("empBean") Employee e) {
+		
+		empService.addEmployee(e);
+		return "success";
+		
+	}
+
+}

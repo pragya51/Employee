@@ -1,0 +1,5 @@
+package com.pack.exception;
+
+public class EmployeeNotFoundException {
+
+}
